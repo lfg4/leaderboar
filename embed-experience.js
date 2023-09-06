@@ -24,10 +24,10 @@ class OxLeaderBoard {
         this.includeHTML()
         window.addEventListener("message", (ev) => this.processMessage(ev));
         this.erMsg.classList.add('oex-error');
-        document.getElementById('oex-gotoregister').onclick = this.toggleForms;
-        document.getElementById('oex-gotologin').onclick = this.toggleForms;
+        document.getElementById('oex-gotoregister').onclick = this.toggleForms();
+        document.getElementById('oex-gotologin').onclick = this.toggleForms();
 
-        document.getElementById('oex-play').onclick = this.checkCredentials;
+        document.getElementById('oex-play').onclick = this.checkCredentials();
     }
 
     includeHTML() {
@@ -47,7 +47,7 @@ class OxLeaderBoard {
                 if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
                 /*remove the attribute, and call this function once more:*/
                 elmnt.removeAttribute("w3-include-html");
-                includeHTML();
+                this.includeHTML();
                 }
             }      
             xhttp.open("GET", file, true);
@@ -85,8 +85,8 @@ class OxLeaderBoard {
         } else {
             this.landing.classList.add('oex-hide');
             this.registerForm.classList.remove('oex-hide');
-            this.registerButton.onclick = this.register;
-            this.loginButton.onclick = this.login;
+            this.registerButton.onclick = this.register();
+            this.loginButton.onclick = this.login();
         }
     }
 
