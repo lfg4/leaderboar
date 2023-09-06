@@ -1,6 +1,6 @@
 import firebase from './firebase.js';
 
-export default class OxLeaderBoard {
+class OxLeaderBoard {
     studioFrame;
 
     experienceUrl = "https://studio.onirix.com/projects/8721b3088abb44ea83f87dd972e3b3b5/webar?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEyMjgwLCJwcm9qZWN0SWQiOjUyNDA1LCJyb2xlIjozLCJpYXQiOjE2OTI3MDUxMDF9.7OgQHOLBUGpnqHdMo_j29C2-okgyDqgWlQHSK13Qpl0&background=alpha&preview=false&hide_controls=false&ar_button=false";
@@ -249,4 +249,8 @@ export default class OxLeaderBoard {
     }
 
     
+}
+
+export default {
+    OxLeaderBoard
 }
