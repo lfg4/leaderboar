@@ -113,7 +113,13 @@ class OxLeaderBoard {
 
     constructor() {
         this.includeHTML()
-        console.log(document.getElementById('oex-main'))
+        this.main = document.getElementById("oex-main");
+        this.leaderboard = document.querySelector(".oex-leaderboard");
+        this.landing = document.getElementById('oex-landing');
+        this.registerForm = document.querySelector('.oex-register-form');
+        this.loginForm = document.querySelector('.oex-login-form');
+        this.registerButton = document.getElementById('oex-register');
+        this.loginButton = document.getElementById('oex-login');
         window.addEventListener("message", (ev) => this.processMessage(ev));
         this.erMsg = document.createElement('p');
         this.erMsg.classList.add('oex-error');
@@ -121,13 +127,7 @@ class OxLeaderBoard {
         document.getElementById('oex-gotologin').onclick = this.toggleForms();
 
         document.getElementById('oex-play').onclick = this.checkCredentials();
-        this.main = document.getElementById("oex-main");
-        this.leaderboard = document.getElementsByClassName('oex-leaderboard')[0]
-        this.landing = document.getElementById('oex-landing');
-        this.registerForm = document.getElementsByClassName("oex-register-form")[0]
-        this.loginForm = document.getElementsByClassName("oex-login-form")[0]
-        this.registerButton = document.getElementById('oex-register');
-        this.loginButton = document.getElementById('oex-login');
+        
         
         console.log(this.registerForm)
     }
