@@ -243,6 +243,7 @@ class OxLeaderBoard {
     }
 
     show() {
+        console.log('entra')
         document.appendChild(document.getElementById("leaderboard"))
     }
 
