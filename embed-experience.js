@@ -41,14 +41,13 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        var r = new FileReader();
-                    r.onload = function (e) {
-                        var contents = e.target.result;
-                        const res = document.createElement('div')
-                        res.innerHTML = contents;
-                        document.append(res)
-                    }
-                    r.readAsDataURL('leaderboard.html');
+        const res = document.createElement('div')
+        fetch('leaderboard.html')
+        .then(response=> response.text())
+        .then(text=> {
+            res.innerHTML = text;
+            document.appendChild(res)
+        } )
     }
     /**
      * Create the iframe that will link the experience
