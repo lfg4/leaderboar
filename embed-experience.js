@@ -23,6 +23,7 @@ class OxLeaderBoard {
     constructor() {
         this.includeHTML()
         window.addEventListener("message", (ev) => this.processMessage(ev));
+        this.erMsg = document.createElement('p');
         this.erMsg.classList.add('oex-error');
         document.getElementById('oex-gotoregister').onclick = this.toggleForms();
         document.getElementById('oex-gotologin').onclick = this.toggleForms();
@@ -35,7 +36,7 @@ class OxLeaderBoard {
         this.loginForm = document.querySelector('.oex-login-form');
         this.registerButton = document.getElementById('oex-register');
         this.loginButton = document.getElementById('oex-login');
-        this.erMsg = document.createElement('p');
+        
         console.log(this.registerForm)
     }
 
