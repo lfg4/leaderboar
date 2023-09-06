@@ -113,7 +113,7 @@ class OxLeaderBoard {
 
     constructor() {
         this.includeHTML()
-        console.log(document)
+        console.log(document.getElementById('oex-main'))
         window.addEventListener("message", (ev) => this.processMessage(ev));
         this.erMsg = document.createElement('p');
         this.erMsg.classList.add('oex-error');
