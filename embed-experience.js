@@ -36,6 +36,7 @@ class OxLeaderBoard {
         this.registerButton = document.getElementById('oex-register');
         this.loginButton = document.getElementById('oex-login');
         this.erMsg = document.createElement('p');
+        console.log(this.registerForm)
     }
 
     includeHTML() {
