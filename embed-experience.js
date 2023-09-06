@@ -242,6 +242,10 @@ class OxLeaderBoard {
         this.loginForm.classList.toggle('oex-hide');
     }
 
+    show() {
+        document.appendChild(document.getElementById("leaderboard"))
+    }
+
     
 }
 
