@@ -127,8 +127,11 @@ class OxLeaderBoard {
         document.getElementById('oex-gotoregister').onclick = this.toggleForms();
         document.getElementById('oex-gotologin').onclick = this.toggleForms();
 
-        document.getElementById('oex-play').onclick = this.checkCredentials();
-        
+        // document.getElementById('oex-play').onclick = this.checkCredentials();
+        document.getElementById('oex-play').addEventListener("click", () => {
+            console.log("click")
+            this.checkCredentials()
+        })
         
         console.log(this.registerForm)
     }
