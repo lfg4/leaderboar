@@ -134,8 +134,8 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        document.getElementById("ox-leaderboard").innerHTML = html
-        
+        // document.getElementById("ox-leaderboard").innerHTML = html
+        $("#ox-leaderboard").load("leaderboard.html");
     }
     /**
      * Create the iframe that will link the experience
