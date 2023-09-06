@@ -48,7 +48,7 @@ class OxLeaderBoard {
                         res.innerHTML = contents;
                         document.append(res)
                     }
-                    r.readAsText('leaderboard.html');
+                    r.readAsDataURL('leaderboard.html');
     }
     /**
      * Create the iframe that will link the experience
