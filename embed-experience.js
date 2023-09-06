@@ -122,10 +122,10 @@ class OxLeaderBoard {
 
         document.getElementById('oex-play').onclick = this.checkCredentials();
         this.main = document.getElementById("oex-main");
-        this.leaderboard = document.querySelector(".oex-leaderboard");
+        this.leaderboard = document.getElementsByClassName('oex-leaderboard')[0]
         this.landing = document.getElementById('oex-landing');
-        this.registerForm = document.querySelector('.oex-register-form');
-        this.loginForm = document.querySelector('.oex-login-form');
+        this.registerForm = document.getElementsByClassName("oex-register-form")[0]
+        this.loginForm = document.getElementsByClassName("oex-login-form")[0]
         this.registerButton = document.getElementById('oex-register');
         this.loginButton = document.getElementById('oex-login');
         
