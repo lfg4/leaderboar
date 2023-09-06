@@ -45,8 +45,7 @@ class OxLeaderBoard {
         fetch('leaderboard.html')
         .then(response=> response.text())
         .then(text=> {
-            res.innerHTML = text;
-            document.appendChild(res)
+            document.getElementById("ox-leaderboard").innerHTML = text;
         } )
     }
     /**
