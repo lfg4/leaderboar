@@ -277,6 +277,7 @@ class OxLeaderBoard {
     }
 
     toggleForms() {
+        console.log(this.registerForm)
         this.registerForm.classList.toggle('oex-hide');
         this.loginForm.classList.toggle('oex-hide');
     }
