@@ -21,6 +21,16 @@ class OxLeaderBoard {
     userSVG = `<svg width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><g fill="#580088" fill-rule="evenodd"><path d="M5.055 5.928c1.584 0 2.872-1.33 2.872-2.964S6.64 0 5.055 0C3.47 0 2.182 1.33 2.182 2.964c0 1.635 1.289 2.964 2.873 2.964M5 6.24c-2.757 0-5 2.315-5 5.16 0 .331.26.6.582.6h8.836a.591.591 0 0 0 .582-.6c0-2.845-2.243-5.16-5-5.16"/></g></svg>`;
 
     constructor() {
+        this.includeHTML()
+        window.addEventListener("message", (ev) => this.processMessage(ev));
+        this.erMsg.classList.add('oex-error');
+        document.getElementById('oex-gotoregister').onclick = this.toggleForms;
+        document.getElementById('oex-gotologin').onclick = this.toggleForms;
+
+        document.getElementById('oex-play').onclick = this.checkCredentials;
+    }
+
+    includeHTML() {
         var z, i, elmnt, file, xhttp;
         /*loop through a collection of all HTML elements:*/
         z = document.getElementsByTagName("*");
@@ -46,12 +56,6 @@ class OxLeaderBoard {
             return;
             }
         }
-        window.addEventListener("message", (ev) => this.processMessage(ev));
-        this.erMsg.classList.add('oex-error');
-        document.getElementById('oex-gotoregister').onclick = this.toggleForms;
-        document.getElementById('oex-gotologin').onclick = this.toggleForms;
-
-        document.getElementById('oex-play').onclick = this.checkCredentials;
     }
     /**
      * Create the iframe that will link the experience
