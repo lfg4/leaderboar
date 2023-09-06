@@ -22,6 +22,7 @@ class OxLeaderBoard {
 
     constructor() {
         console.log('constructor')
+        document.appendChild(document.getElementById("leaderboard"))
         window.addEventListener("message", (ev) => this.processMessage(ev));
         this.erMsg.classList.add('oex-error');
         document.getElementById('oex-gotoregister').onclick = this.toggleForms;
@@ -245,7 +246,7 @@ class OxLeaderBoard {
 
     show() {
         console.log('entra')
-        document.appendChild(document.getElementById("leaderboard"))
+        
     }
 
     
