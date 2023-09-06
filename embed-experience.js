@@ -48,10 +48,12 @@ class OxLeaderBoard {
             elmnt = z[i];
             /*search for elements with a certain attribute:*/
             file = elmnt.getAttribute("w3-include-html");
+            console.log(file)
             if (file) {
             /*make an HTTP request using the attribute value as the file name:*/
             xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
+            xhttp.onreadystatechange = function(res) {
+                console.log(res)
                 if (this.readyState == 4) {
                 if (this.status == 200) {elmnt.innerHTML = this.responseText;}
                 if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
