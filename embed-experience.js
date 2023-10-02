@@ -394,7 +394,8 @@ class OxLeaderBoard {
         this.experienceUrl = experienceUrl;
         this.firebaseController = new firebase.FirebaseController(firebaseConfig);
         this.includeHTML();
-        this.main = document.getElementById("oex-main");
+        setTimeout(() => {
+            this.main = document.getElementById("oex-main");
         this.leaderboard = document.querySelector(".oex-leaderboard");
         this.landing = document.getElementById('oex-landing');
         this.registerForm = document.querySelector('.oex-register-form');
@@ -410,12 +411,14 @@ class OxLeaderBoard {
         document.getElementById('oex-play').addEventListener("click", () => {
             this.checkCredentials()
         })
+        }, 1000);
+        
         
     }
 
-    includeHTML() {
+    async includeHTML() {
         var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('get', 'https://lfg4.github.io/leaderboar/leaderboard.html', true);
+        await xhr.open('get', 'https://lfg4.github.io/leaderboar/leaderboard.html', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) { 
                 console.log(xhr.responseText)
