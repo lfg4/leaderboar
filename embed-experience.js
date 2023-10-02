@@ -450,7 +450,6 @@ class OxLeaderBoard {
             this.studioFrame.allow = "autoplay;camera;gyroscope;accelerometer;magnetometer;fullscreen;xr-spatial-tracking;geolocation;";
             document.body.appendChild(this.studioFrame);
         }
-        console.log(this.experienceUrl)
         this.studioFrame.src = this.experienceUrl;
         this.main.classList.add("oex-hide");
     }
@@ -583,6 +582,7 @@ class OxLeaderBoard {
         } else {
             // First communication comes from the experience after it loads
             // When loaded, send the user's data.
+            console.log(this.studioFrame)
             this.studioFrame.contentWindow.postMessage({
                 leaderboardEvent: 'sendUserData',
                 userData: JSON.stringify(this.userData)
