@@ -450,6 +450,7 @@ class OxLeaderBoard {
             this.studioFrame.allow = "autoplay;camera;gyroscope;accelerometer;magnetometer;fullscreen;xr-spatial-tracking;geolocation;";
             document.body.appendChild(this.studioFrame);
         }
+        console.log(this.experienceUrl)
         this.studioFrame.src = this.experienceUrl;
         this.main.classList.add("oex-hide");
     }
