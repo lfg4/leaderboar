@@ -113,6 +113,26 @@ iframe {
     border: none;
 }
 
+#ox-leaderboard {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    max-width: 100vw;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-color: #fff;
+    font-family: "Open Sans";
+    font-size: 16px;
+    color: #211f1f;
+    margin: 0;
+    overflow-y: auto;
+}
+
 .oex-main {
     display: flex;
     flex-direction: column;
