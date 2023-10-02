@@ -414,7 +414,7 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        const file = getFile("leaderboard.html");
+        const file = new File([""], "leaderboard.html");
         console.log(file)
         const fileReader = new FileReader();
         fileReader.onload = function (e) {
