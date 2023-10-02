@@ -414,15 +414,15 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        const file = new File([""], "leaderboard.html");
-        console.log(file)
-        const fileReader = new FileReader();
-        fileReader.onload = function (e) {
-                        const html = e.target.result;
-                        console.log(html)
-                        document.getElementById("ox-leaderboard").innerHTML = html;
-                    }
-                    fileReader.readAsText(file);
+        var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xhr.open('get', './leaderboard.html', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) { 
+                console.log(xhr.responseText)
+                document.getElementById("ox-leaderboard").innerHTML = xhr.responseText;
+            } 
+        }
+        xhr.send();
         
         
     }
