@@ -70,7 +70,7 @@ const html = `
                 </div>
                 <div>
                     <label>Password</label>
-                    <input id="oex-login-password" type="password" minlength="6" required />
+                    <input id="oex-login-password" type="password" minlength="6" required placeholder="Don't worry, we don't spam phone" />
                 </div>
             </form>
             <div class="oex-button-area">
@@ -140,6 +140,7 @@ iframe {
     max-width: 400px;
     margin: auto;
     padding: 30px;
+    height: calc(100% - 60px);
 }
 
 .oex-main section {
@@ -218,6 +219,7 @@ button {
 form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 form > div {
@@ -250,6 +252,7 @@ form > div input::placeholder {
     display: flex;
     align-items: center;
     margin-top: 16px;
+    flex-direction: row;
 }
 
 .oex-checkbox label {
