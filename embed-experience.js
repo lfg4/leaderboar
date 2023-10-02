@@ -412,8 +412,6 @@ class OxLeaderBoard {
     userSVG = `<svg width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><g fill="#580088" fill-rule="evenodd"><path d="M5.055 5.928c1.584 0 2.872-1.33 2.872-2.964S6.64 0 5.055 0C3.47 0 2.182 1.33 2.182 2.964c0 1.635 1.289 2.964 2.873 2.964M5 6.24c-2.757 0-5 2.315-5 5.16 0 .331.26.6.582.6h8.836a.591.591 0 0 0 .582-.6c0-2.845-2.243-5.16-5-5.16"/></g></svg>`;
 
     constructor(experienceUrl, firebaseConfig) {
-        this.firebaseController = new firebase.FirebaseController(firebaseConfig);
-        //this.experienceUrl = experienceUrl;
         this.includeHTML()
         this.main = document.getElementById("oex-main");
         this.leaderboard = document.querySelector(".oex-leaderboard");
@@ -582,7 +580,6 @@ class OxLeaderBoard {
         } else {
             // First communication comes from the experience after it loads
             // When loaded, send the user's data.
-            console.log(this.studioFrame)
             this.studioFrame.contentWindow.postMessage({
                 leaderboardEvent: 'sendUserData',
                 userData: JSON.stringify(this.userData)

@@ -25,7 +25,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.2.0/firebase
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-/*const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyCMN5ZR_5rYEqtyfpZHD6VCwzJZXEelSmQ",
     authDomain: "eng-801-leaderboard.firebaseapp.com",
     projectId: "eng-801-leaderboard",
@@ -33,7 +33,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.2.0/firebase
     messagingSenderId: "1097245180461",
     appId: "1:1097245180461:web:f13afb85e06dea89872ea4",
     measurementId: "G-W08DFVE45S"
-};*/
+};
 
 const firebaseConstants = {
     COLLECTION_USERS: 'USERS',
@@ -45,7 +45,7 @@ class FirebaseController {
     analytics;
     db;
 
-    constructor(firebaseConfig) {
+    constructor() {
         // Initialize Firebase
         this.app = initializeApp(firebaseConfig);
         this.auth = getAuth(this.app);
