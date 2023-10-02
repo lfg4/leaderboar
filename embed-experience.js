@@ -130,7 +130,6 @@ iframe {
     font-size: 16px;
     color: #211f1f;
     margin: 0;
-    overflow-y: auto;
 }
 
 .oex-main {
@@ -220,6 +219,8 @@ form {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    height: calc(100% - 110px);
+    overflow-y: overlay;
 }
 
 form > div {
@@ -411,7 +412,6 @@ class OxLeaderBoard {
     userSVG = `<svg width="10" height="12" viewBox="0 0 10 12" xmlns="http://www.w3.org/2000/svg"><g fill="#580088" fill-rule="evenodd"><path d="M5.055 5.928c1.584 0 2.872-1.33 2.872-2.964S6.64 0 5.055 0C3.47 0 2.182 1.33 2.182 2.964c0 1.635 1.289 2.964 2.873 2.964M5 6.24c-2.757 0-5 2.315-5 5.16 0 .331.26.6.582.6h8.836a.591.591 0 0 0 .582-.6c0-2.845-2.243-5.16-5-5.16"/></g></svg>`;
 
     constructor() {
-        console.log(this.firebaseController)
         this.includeHTML()
         this.main = document.getElementById("oex-main");
         this.leaderboard = document.querySelector(".oex-leaderboard");
@@ -458,7 +458,6 @@ class OxLeaderBoard {
      * If there isn't go to register.
      */
     checkCredentials() {
-        console.log('check')
         this.userCredential = JSON.parse(localStorage.getItem("oex-user"));
         if (this.userCredential) {
             this.getUserData().then(() => this.loadExperience());
@@ -568,10 +567,9 @@ class OxLeaderBoard {
      * @param {*} event containing the new score
      */
     processMessage(event) {
-        if (event.origin != "https://studio.onirix.com") {
+        /*if (event.origin != "https://studio.onirix.com") {
             return;
-        }
-
+        }*/
         if (event.data != null && event.data.score != null) {
             if (!this.userData.score || this.userData.score < event.data.score) {
                 this.userData.score = event.data.score;
@@ -621,7 +619,7 @@ class OxLeaderBoard {
             name.textContent = user.nickname;
             score.textContent = lastScore;
 
-            if (user.email === userData.email) {
+            if (user.email === this.userData.email) {
                 const span = document.createElement("span");;
                 span.innerHTML = this.userSVG.trim();
                 li.classList.add('oex-currentuser');
@@ -647,14 +645,8 @@ class OxLeaderBoard {
     }
 
     toggleForms() {
-        console.log(this.registerForm)
         this.registerForm.classList.toggle('oex-hide');
         this.loginForm.classList.toggle('oex-hide');
-    }
-
-    show() {
-        console.log('entra')
-        
     }
 
     
