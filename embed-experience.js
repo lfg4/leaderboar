@@ -434,6 +434,7 @@ class OxLeaderBoard {
      * onload send a message with user's data.
      */
     loadExperience() {
+        console.log("loaad")
         this.studioFrame = document.getElementById("oex-frame")
         if (null == this.studioFrame) {
             this.studioFrame = document.createElement('iframe');
