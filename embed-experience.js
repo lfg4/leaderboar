@@ -1,5 +1,4 @@
 import firebase from 'https://lfg4.github.io/leaderboar/firebase.js';
-import fs  from 'fs';
 
 const html = `
 <html id="leaderboard">
@@ -415,12 +414,15 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        fs.readFile('./leaderboard.html', function(err, data) {
-            console.log(data)
-            const html = data.target.result;
+        const file = getFile("leaderboard.html");
+        console.log(file)
+        const fileReader = new FileReader();
+        fileReader.onload = function (e) {
+                        const html = e.target.result;
+                        console.log(html)
                         document.getElementById("ox-leaderboard").innerHTML = html;
-          });
-        
+                    }
+                    fileReader.readAsText(file);
         
         
     }
