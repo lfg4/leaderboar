@@ -393,16 +393,13 @@ class OxLeaderBoard {
         window.addEventListener("message", (ev) => this.processMessage(ev));
         this.erMsg = document.createElement('p');
         this.erMsg.classList.add('oex-error');
-        document.getElementById('oex-gotoregister').onclick = this.toggleForms();
-        document.getElementById('oex-gotologin').onclick = this.toggleForms();
+        document.getElementById('oex-gotoregister').addEventListener("click", () => this.toggleForms());
+        document.getElementById('oex-gotologin').addEventListener("click", () => this.toggleForms());
 
-        // document.getElementById('oex-play').onclick = this.checkCredentials();
         document.getElementById('oex-play').addEventListener("click", () => {
-            console.log("click")
             this.checkCredentials()
         })
         
-        console.log(this.registerForm)
     }
 
     includeHTML() {
@@ -438,8 +435,8 @@ class OxLeaderBoard {
         } else {
             this.landing.classList.add('oex-hide');
             this.registerForm.classList.remove('oex-hide');
-            this.registerButton.onclick = this.register();
-            this.loginButton.onclick = this.login();
+            this.registerButton.addEventListener("click", () => this.register());
+            this.loginButton.addEventListener("click", () => this.login());
         }
     }
 
@@ -608,10 +605,10 @@ class OxLeaderBoard {
 
         list.appendChild(ul);
 
-        document.getElementById('oex-playagain').onclick = () => {
+        document.getElementById('oex-playagain').addEventListener("click", () => {
             list.innerHTML = "";
             this.loadExperience();
-        }
+        });
     }
 
     setUserCredentials(credentials) {
