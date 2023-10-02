@@ -394,8 +394,7 @@ class OxLeaderBoard {
         this.experienceUrl = experienceUrl;
         this.firebaseController = new firebase.FirebaseController(firebaseConfig);
         this.includeHTML();
-        setTimeout(() => {
-            this.main = document.getElementById("oex-main");
+        this.main = document.getElementById("oex-main");
         this.leaderboard = document.querySelector(".oex-leaderboard");
         this.landing = document.getElementById('oex-landing');
         this.registerForm = document.querySelector('.oex-register-form');
@@ -411,22 +410,11 @@ class OxLeaderBoard {
         document.getElementById('oex-play').addEventListener("click", () => {
             this.checkCredentials()
         })
-        }, 1000);
-        
         
     }
 
-    async includeHTML() {
-        var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        await xhr.open('get', 'https://lfg4.github.io/leaderboar/leaderboard.html', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && xhr.status == 200) { 
-                console.log(xhr.responseText)
-                document.getElementById("ox-leaderboard").innerHTML = xhr.responseText;
-            } 
-        }
-        xhr.send();
-        
+    includeHTML() {
+        document.getElementById("ox-leaderboard").innerHTML = html
         
     }
     /**
@@ -434,7 +422,6 @@ class OxLeaderBoard {
      * onload send a message with user's data.
      */
     loadExperience() {
-        console.log("loaad")
         this.studioFrame = document.getElementById("oex-frame")
         if (null == this.studioFrame) {
             this.studioFrame = document.createElement('iframe');
