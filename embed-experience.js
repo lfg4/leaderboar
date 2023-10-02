@@ -91,27 +91,6 @@ const html = `
 </body>
 </html>
 <style>
-body {
-    background-color: #fff;
-    font-family: "Open Sans";
-    font-size: 16px;
-    color: #211f1f;
-    margin: 0;
-}
-
-iframe {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    max-width: 100vw;
-    width: 100%;
-    height: 100%;
-    display: block;
-    border: none;
-}
 
 #ox-leaderboard {
     position: fixed;
@@ -435,7 +414,14 @@ class OxLeaderBoard {
     }
 
     includeHTML() {
-        document.getElementById("ox-leaderboard").innerHTML = html
+        const file = new File([""], "./leaderboard.html")
+        const fileReader = new FileReader();
+        fileReader.onload = function (e) {
+                        const html = e.target.result;
+                        document.getElementById("ox-leaderboard").innerHTML = html;
+                    }
+                    fileReader.readAsText(file);
+        
         
     }
     /**
