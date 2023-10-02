@@ -413,7 +413,7 @@ class OxLeaderBoard {
 
     constructor(experienceUrl, firebaseConfig) {
         this.firebaseController = new firebase.FirebaseController(firebaseConfig);
-        this.experienceUrl = experienceUrl;
+        //this.experienceUrl = experienceUrl;
         this.includeHTML()
         this.main = document.getElementById("oex-main");
         this.leaderboard = document.querySelector(".oex-leaderboard");
