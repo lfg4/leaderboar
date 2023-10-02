@@ -415,7 +415,7 @@ class OxLeaderBoard {
 
     includeHTML() {
         var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('get', './leaderboard.html', true);
+        xhr.open('get', 'https://lfg4.github.io/leaderboar/leaderboard.html', true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && xhr.status == 200) { 
                 console.log(xhr.responseText)
