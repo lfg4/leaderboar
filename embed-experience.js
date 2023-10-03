@@ -137,7 +137,7 @@ class OxLeaderBoard {
     }
 
     async includeHTML() {
-        await fetch('./leaderboard.html').then(res => {
+        await fetch('https://lfg4.github.io/leaderboar/leaderboard.html').then(res => {
             if (res.ok) {
                 return res.text();
             }
