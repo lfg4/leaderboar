@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #fff;
     font-family: "Open Sans";
     font-size: 16px;
@@ -17,10 +17,10 @@ iframe {
     height: 100%;
     display: block;
     border: none;
-}
+} */
 
 #ox-leaderboard {
-    /* position: fixed;
+    position: fixed;
     top: 0px;
     left: 0px;
     right: 0;
@@ -35,7 +35,7 @@ iframe {
     font-family: "Open Sans";
     font-size: 16px;
     color: #211f1f;
-    margin: 0; */
+    margin: 0;
 }
 
 .oex-main {
