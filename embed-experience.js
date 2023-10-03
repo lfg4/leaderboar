@@ -114,28 +114,37 @@ class OxLeaderBoard {
     constructor(experienceUrl, firebaseConfig) {
         this.experienceUrl = experienceUrl;
         this.firebaseController = new firebase.FirebaseController(firebaseConfig);
-        this.includeHTML();
-        this.main = document.getElementById("oex-main");
-        this.leaderboard = document.querySelector(".oex-leaderboard");
-        this.landing = document.getElementById('oex-landing');
-        this.registerForm = document.querySelector('.oex-register-form');
-        this.loginForm = document.querySelector('.oex-login-form');
-        this.registerButton = document.getElementById('oex-register');
-        this.loginButton = document.getElementById('oex-login');
-        window.addEventListener("message", (ev) => this.processMessage(ev));
-        this.erMsg = document.createElement('p');
-        this.erMsg.classList.add('oex-error');
-        document.getElementById('oex-gotoregister').addEventListener("click", () => this.toggleForms());
-        document.getElementById('oex-gotologin').addEventListener("click", () => this.toggleForms());
+        this.includeHTML().then(() => {
+            this.main = document.getElementById("oex-main");
+            this.leaderboard = document.querySelector(".oex-leaderboard");
+            this.landing = document.getElementById('oex-landing');
+            this.registerForm = document.querySelector('.oex-register-form');
+            this.loginForm = document.querySelector('.oex-login-form');
+            this.registerButton = document.getElementById('oex-register');
+            this.loginButton = document.getElementById('oex-login');
+            window.addEventListener("message", (ev) => this.processMessage(ev));
+            this.erMsg = document.createElement('p');
+            this.erMsg.classList.add('oex-error');
+            document.getElementById('oex-gotoregister').addEventListener("click", () => this.toggleForms());
+            document.getElementById('oex-gotologin').addEventListener("click", () => this.toggleForms());
 
-        document.getElementById('oex-play').addEventListener("click", () => {
-            this.checkCredentials()
-        })
+            document.getElementById('oex-play').addEventListener("click", () => {
+                this.checkCredentials()
+            })
+        });
+        
         
     }
 
-    includeHTML() {
-        document.getElementById("ox-leaderboard").innerHTML = html
+    async includeHTML() {
+        await fetch('./leaderboard.html').then(res => {
+            if (res.ok) {
+                return res.text();
+            }
+        }).then(html => {
+            document.getElementById("ox-leaderboard").innerHTML = html;
+        })
+        
         
     }
     /**
